@@ -12,9 +12,9 @@ public abstract class Animal {
         this.nomePopular = nomePopular;
         this.nomeCientifico = nomeCientifico;
         this.grupo = grupo;
-        this.pesoMedio= peso;
-        this.alturaMedia =altura;
-        this.somDoAnimal
+        this.pesoMedio = peso;
+        this.alturaMedia = altura;
+        this.somDoAnimal = somDoAnimal;
     }
     public String emitirSom(){
         return this.somDoAnimal;
@@ -23,11 +23,11 @@ public abstract class Animal {
     public void mostrarInformacoes(){
         System.out.println("O animal de nome popular " + nomePopular);
         System.out.println("Possui nome cientifico " + nomeCientifico );
-        System.out.println("e é um " + Familia.valueOf(grupo.toString())+"S");
+        System.out.println("e é um " + Familia.valueOf(grupo.toString()));
         System.out.println(" da familia dos " + grupo.toString().toLowerCase());
         System.out.println("seu tamanho médio é "+ alturaMedia);
         System.out.println("e a sua altura média é "+pesoMedio);
-        Sysyem.out.println(" O som que ele faz é "+ emitirSom() )
+        System.out.println(" O som que ele faz é "+ somDoAnimal);
     }
 
     public String getNomePopular() {

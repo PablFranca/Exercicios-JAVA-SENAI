@@ -7,8 +7,5 @@ public class Anelideo extends Animal {
         super(nomePopular, nomeCientifico, GrupoAnimal.ANELIDEO, peso, altura);
     }
 
-    @Override
-    public void emitirSom() {
-
-    }
+    
 }
