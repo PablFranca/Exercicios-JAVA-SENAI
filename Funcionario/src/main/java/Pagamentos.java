@@ -1,3 +1,3 @@
 public interface Pagamentos {
-    public double calcularPagamento(double valorHoraTrabalhada, double horasTrabalhadas);
+    public double calcularPagamento(Funcionario funcionario);
 }

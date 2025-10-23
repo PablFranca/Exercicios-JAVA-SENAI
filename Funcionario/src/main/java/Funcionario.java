@@ -1,8 +1,8 @@
 public abstract class Funcionario{
-    private String nome;
-    private String matricula;
-    private Cargo cargo;
-    private double salario;
+    protected String nome;
+    protected String matricula;
+    protected Cargo cargo;
+    protected double salario;
 
     protected Funcionario(String nome,
                           String matricula,
