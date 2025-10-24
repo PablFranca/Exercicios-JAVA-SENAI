@@ -1,13 +1,11 @@
 public class Horista extends Funcionario {
-    private double valorDaHoraTrabalhada;
-    private double horasTrabalhadas;
+    private final double valorDaHoraTrabalhada;
+    private final double horasTrabalhadas;
 
     protected Horista(String nome,
-                      String matricula,
-                      Cargo cargo,
                       double valorDaHoraTrabalhada,
                       double horasTrabalhadas) {
-        super(nome, matricula, Cargo.HORISTA);
+        super(nome, Cargo.HORISTA);
         this.valorDaHoraTrabalhada = valorDaHoraTrabalhada;
         this.horasTrabalhadas = horasTrabalhadas;
     }
@@ -18,15 +16,17 @@ public class Horista extends Funcionario {
         return horasTrabalhadas;
     }
 
-    public void setHorasTrabalhadas(double horasTrabalhadas) {
-        this.horasTrabalhadas = horasTrabalhadas;
-    }
-
     public double getValorDaHoraTrabalhada() {
         return valorDaHoraTrabalhada;
     }
 
-    public void setValorDaHoraTrabalhada(double valorDaHoraTrabalhada) {
-        this.valorDaHoraTrabalhada = valorDaHoraTrabalhada;
+    @Override
+    public void mostrarInformacoes() {
+        System.out.println("O funcionario "+ nome+",");
+        System.out.println("matrícula " + matricula + ",");
+        System.out.println("no regime + " + cargo.toString().toLowerCase()+",");
+        System.out.println("tendo sua hora negociada em " +valorDaHoraTrabalhada +",");
+        System.out.println("trabalhou por" + horasTrabalhadas + " horas,");
+        System.out.println("e recebe no total" + getSalario());
     }
 }

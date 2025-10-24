@@ -27,9 +27,6 @@ public class CalculoDeSalarios {
                     System.out.println("Nome: ");
                     String nomeFuncionario = sc.nextLine();
 
-                    System.out.println("Matricula: ");
-                    String matriculaFuncionario = sc.nextLine();
-
                     System.out.println("Cargo: ");
                     String cargo = sc.nextLine().toUpperCase();
 
@@ -43,7 +40,7 @@ public class CalculoDeSalarios {
                             double horasTrabalhadas = sc.nextDouble();
                             sc.nextLine();
 
-                            funcionarios.add(new Horista(nomeFuncionario, matriculaFuncionario, Cargo.HORISTA, valorHoraTrabalhada, horasTrabalhadas));
+                            funcionarios.add(new Horista(nomeFuncionario, valorHoraTrabalhada, horasTrabalhadas));
 
                             break;
 
@@ -55,7 +52,7 @@ public class CalculoDeSalarios {
                             double taxaDeComissao = sc.nextDouble();
                             sc.nextLine();
 
-                            funcionarios.add(new Comissionado(nomeFuncionario, matriculaFuncionario, Cargo.COMISSIONADO, totalDeVendas, taxaDeComissao));
+                            funcionarios.add(new Comissionado(nomeFuncionario, totalDeVendas, taxaDeComissao));
 
                             break;
 
@@ -65,7 +62,7 @@ public class CalculoDeSalarios {
                             System.out.println("Informe a porcentagem de comissão 0-100");
 
                             double bonusFixo = sc.nextDouble();
-                            funcionarios.add(new Assalariado(nomeFuncionario, matriculaFuncionario, Cargo.ASSALARIADO, salarioBase, bonusFixo));
+                            funcionarios.add(new Assalariado(nomeFuncionario, salarioBase, bonusFixo));
                             sc.nextLine();
 
                             break;
@@ -77,16 +74,40 @@ public class CalculoDeSalarios {
 
                 case 2:
                     System.out.println("Informe o usuário do qual deseja informações");
-
+                    String usuarioPesquisado = sc.nextLine();
+                    for(Funcionario f: funcionarios){
+                        if(f.nome.equals(usuarioPesquisado)){
+                            f.mostrarInformacoes();
+                            break;
+                        }
+                    }
                     break;
                 case 3:
-
+                    System.out.println("Informe o usuário do qual deseja calcular o salário: ");
+                    String usuario = sc.nextLine();
+                    for(Funcionario f: funcionarios)
+                        if(f.nome.equals(usuario)){
+                            System.out.println(f.getSalario());
+                            break;
+                        }
                     break;
                 case 4:
-
+                    double somaSalarios = 0;
+                    for(Funcionario f: funcionarios){
+                        somaSalarios += f.getSalario();
+                    }
+                    System.out.println("A empresa atualmente paga " +  somaSalarios +" em salários");
                     break;
                 case 5:
-
+                    double maiorSalario = 0;
+                    double salarioAtual;
+                    for(Funcionario f: funcionarios){
+                        salarioAtual = f.salario;
+                        if(salarioAtual>maiorSalario){
+                            maiorSalario = salarioAtual;
+                        }
+                    }
+                    System.out.println("O maior salário da empresa atualmente é "+ maiorSalario);
                     break;
                 case 6:
 

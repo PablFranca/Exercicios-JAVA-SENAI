@@ -35,7 +35,7 @@ public enum Cargo implements Pagamentos{
             }
             return 0;
         }
-    };
+    }
 }
 
 

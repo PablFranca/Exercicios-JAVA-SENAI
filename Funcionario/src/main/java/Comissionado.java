@@ -1,14 +1,12 @@
 public class Comissionado extends Funcionario{
 
-    private double taxaDeComissao;
-    private double totalDeVendas;
+    private final double taxaDeComissao;
+    private final double totalDeVendas;
 
     protected Comissionado(String nome,
-                           String matricula,
-                           Cargo cargo,
                            double taxaDeComissao,
                            double totalDeVendas) {
-        super(nome, matricula, Cargo.COMISSIONADO);
+        super(nome, Cargo.COMISSIONADO);
         this.taxaDeComissao = taxaDeComissao;
         this.totalDeVendas = totalDeVendas;
     }
@@ -18,15 +16,19 @@ public class Comissionado extends Funcionario{
         return taxaDeComissao;
     }
 
-    public void setTaxaDeComissao(double salarioBase) {
-        this.taxaDeComissao = salarioBase;
-    }
 
     public double getTotalDeVendas() {
         return totalDeVendas;
     }
 
-    public void setTotalDeVendas(double totalDeVendas) {
-        this.totalDeVendas = totalDeVendas;
+    @Override
+    public void mostrarInformacoes() {
+        System.out.println("O funcionario "+ nome+",");
+        System.out.println("matrícula " + matricula + ",");
+        System.out.println("no regime + " + cargo.toString().toLowerCase()+",");
+        System.out.println("tendo um total de vendas de" + totalDeVendas+",");
+        System.out.println("sua taxa de comissão é de " + taxaDeComissao+",");
+        System.out.println("e recebe no total" + getSalario());
+
     }
 }

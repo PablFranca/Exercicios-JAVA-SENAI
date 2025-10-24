@@ -1,10 +1,10 @@
 public class Assalariado extends Funcionario{
 
-    private double salarioBase;
-    private double bonusAdicional;
+    private final double salarioBase;
+    private final double bonusAdicional;
 
-    protected Assalariado(String nome, String matricula, Cargo cargo, double salarioBase, double bonusAdicional ) {
-        super(nome, matricula, Cargo.ASSALARIADO);
+    protected Assalariado(String nome, double salarioBase, double bonusAdicional ) {
+        super(nome, Cargo.ASSALARIADO);
         this.salarioBase = salarioBase;
         this.bonusAdicional = bonusAdicional;
     }
@@ -15,11 +15,15 @@ public class Assalariado extends Funcionario{
     public double getBonusAdicional() {
         return bonusAdicional;
     }
-    public void setSalarioBase(double salarioBase) {
-        this.salarioBase = salarioBase;
-    }
 
-    public void setBonusAdicional(double bonusAdicional) {
-        this.bonusAdicional = bonusAdicional;
+
+    @Override
+    public void mostrarInformacoes() {
+        System.out.println("O funcionario "+ nome);
+        System.out.println("matrícula " + matricula);
+        System.out.println("recebe " + getSalario());
+        System.out.println("no regime + " + cargo.toString().toLowerCase());
+        System.out.println("sendo o salário base" + salarioBase);
+        System.out.println("e bonus de " + bonusAdicional);
     }
 }
