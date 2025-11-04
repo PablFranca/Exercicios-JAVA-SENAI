@@ -1,0 +1,13 @@
+package org.example.exspringboot;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class ExSpringbootApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
