@@ -14,9 +14,9 @@ public class ExController {
     public String home(){
         return "Olá, aplicação Spring Boot.";
     }
-    @GetMapping("/teste/{numUm}/{numDois}")
-    public String test(@PathVariable int numUm, @PathVariable int numDois){
-        return numUm>numDois? numUm+" É MAIOR": numDois +" É MAIOR";
+    @GetMapping("/testeSeParOuImpar/{numUm}")
+    public String testaSeNumeroEhParOuImpar(@PathVariable int numUm){
+        return numUm % 2 ==0 ? numUm +" é Par": numUm + "é Impar";
     }
     @GetMapping("/somar/{numUm}/{numDois}")
     public String somar(@PathVariable int numUm, @PathVariable int numDois){
@@ -36,3 +36,4 @@ public class ExController {
     }
 
 }
+
