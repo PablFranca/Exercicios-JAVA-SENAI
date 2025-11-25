@@ -1,5 +1,6 @@
 package com.springapp.lanches_da_tia.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
+
 
 @Entity
 @Table(name = "clientes")
@@ -30,7 +32,8 @@ public class Cliente {
     @Column(name = "telefone")
     private String telefone;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_endereco")
     private Endereco endereco;
 
     @Column(name = "data_de_cadastro")
@@ -39,12 +42,19 @@ public class Cliente {
     @Column(name = "cliente_esta_ativo")
     private boolean estaAtivo;
 
+
     @Column(name = "preferencias")
     private String preferencias;
 
     @Pattern(regexp = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$", message = "Formato de CpfInvalido")
     @Column(name = "cpf", nullable = false, unique = true)
     private String cpf;
+
+
+
+    @OneToMany (mappedBy = "cliente", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<PedidosCliente> pedidos;
 
 
     protected Cliente (){
