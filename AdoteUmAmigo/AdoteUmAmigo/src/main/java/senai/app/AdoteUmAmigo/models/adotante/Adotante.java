@@ -1,10 +1,23 @@
-package main.java.senai.app.AdoteUmAmigo.models.adotante;
+package senai.app.AdoteUmAmigo.models.adotante;
 
-import main.java.senai.app.AdoteUmAmigo.models.pet.Pet;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import senai.app.AdoteUmAmigo.models.pet.Pet;
 
 import java.util.List;
 
+@Entity
+@Table(name = "adotantes")
+@Getter
+@Setter
+
 public class Adotante {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column
     private String nomeCompleto;
 

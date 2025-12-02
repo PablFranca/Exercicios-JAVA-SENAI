@@ -1,8 +1,10 @@
-package main.java.senai.app.AdoteUmAmigo.repositories;
+package senai.app.AdoteUmAmigo.repositories;
 
-import main.java.senai.app.AdoteUmAmigo.models.pet.Pet;
+import org.springframework.stereotype.Repository;
+import senai.app.AdoteUmAmigo.models.pet.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+@Repository
 public interface PetRepository extends JpaRepository<Pet, Long>{
 
 }

@@ -1,4 +1,4 @@
-package main.java.senai.app.AdoteUmAmigo.models.pet;
+package senai.app.AdoteUmAmigo.models.pet;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,11 +9,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Tabble(name = "pets")
+@Table(name = "pets")
 @Getter
 @Setter
 
 public class Pet {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+
     @Column
     private String nome;
 
